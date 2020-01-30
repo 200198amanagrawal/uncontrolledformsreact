@@ -1,15 +1,19 @@
 import React,{Component} from "react";
-
+import User from "./User";
 export default class App extends Component
 {
+    
     render()
     {
-        const arr=[10,20,30,40];
+        const arr=this.props.numbers;
         const newarr=arr.map((num)=>{
-        return <li>{num*2}</li>//here numarr is basically holding <li> so it will work acc.
+            return <User key={num} value={num}/>
         })
-        return (<>
-        <ul>{newarr}</ul>
-        </>)
+        
+        return (
+        <>
+            <ul>{newarr}</ul>
+        </>
+        )
     }
 }
