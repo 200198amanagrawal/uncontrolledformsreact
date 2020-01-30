@@ -1,19 +1,28 @@
 import React,{Component} from "react";
-import User from "./User";
+//import User from "./User";
 export default class App extends Component
 {
     
+    state={
+        set:false
+    }
+    handleclick=()=>{
+        this.setState({set:true})
+    }
     render()
     {
-        const arr=this.props.numbers;
-        const newarr=arr.map((num)=>{
-            return <User key={num} value={num}/>
-        })
-        
+        const btnstyle={
+            color:"blue",
+            backgroundColor:"orange"
+        };
+        if(this.state.set)
+        {
+            btnstyle.backgroundColor="white";
+        }
         return (
-        <>
-            <ul>{newarr}</ul>
-        </>
+            <div>
+                <button onClick={this.handleclick} style={btnstyle}>Click</button>
+            </div>
         )
     }
 }
