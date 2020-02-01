@@ -1,27 +1,11 @@
-import React,{Component} from "react";
-//import User from "./User";
-export default class App extends Component
-{
-    
-    state={
-        set:false
-    }
-    handleclick=()=>{
-        this.setState({set:true})
-    }
-    render()
-    {
-        const btnstyle={
-            color:"blue",
-            backgroundColor:"orange"
-        };
-        if(this.state.set)
-        {
-            btnstyle.backgroundColor="white";
-        }
+import React, { Component } from 'react'
+import  pic from "./logo512.png"//using only when there is an image in src folder.
+export default class App extends Component {
+    render() {
         return (
             <div>
-                <button onClick={this.handleclick} style={btnstyle}>Click</button>
+                <img src={process.env.PUBLIC_URL+"/logo192.png"} alt="inside a public folder" width="300px"/>
+                <img src={pic} alt="inside src folder" width="300px"/>
             </div>
         )
     }
