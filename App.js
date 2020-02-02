@@ -1,16 +1,31 @@
 import React, { Component } from 'react'
+
 export default class App extends Component {
-    state={
-        value:""
+    constructor(props){
+        super(props);
+        this.textInput=React.createRef();
     }
-    handleclick=(e)=>
-    {
-        this.setState({value:e.target.value.toUpperCase().substr(0,10)});//we can apply any function here.
+    componentDidMount=()=>{
+        console.log(this.textInput.current);
+        this.textInput.current.focus();
     }
     render() {
         return (
             <div>
-                <input type="text" value={this.state.value} onChange={this.handleclick}></input>
+                <form>
+                    <label>
+                        Name: <input type="text"/>
+                    </label>
+                    <br/><br/>
+                    <label>
+                        Password: <input type="text" ref={this.textInput}/>
+                    </label>
+                    <br/><br/>
+                    <label>
+                        Address: <input type="text"/>
+                    </label>
+                    <br/><br/>
+                </form>
             </div>
         )
     }
